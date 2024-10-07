@@ -1,0 +1,103 @@
+import math
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Error! Division by zero."
+    else:
+        return x / y
+
+def sqrt(x):
+    if x < 0:
+        return "Error! Square root of a negative number."
+    else:
+        return math.sqrt(x)
+
+def logarithm(x, base=10):
+    if x <= 0:
+        return "Error! Logarithm of non-positive numbers."
+    else:
+        return math.log(x, base)
+
+def natural_log(x):
+    if x <= 0:
+        return "Error! Logarithm of non-positive numbers."
+    else:
+        return math.log(x)  # Natural log (log base e)
+
+def exponential(x):
+    return math.exp(x)
+
+def power(x, y):
+    return math.pow(x, y)
+
+def scientific_calculator():
+    print("Welcome to the Scientific Calculator!")
+    print("Options:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Square Root")
+    print("6. Logarithm (Base 10 or Custom Base)")
+    print("7. Natural Logarithm (ln, Base e)")
+    print("8. Exponentiation")
+    print("9. Power (x^y)")
+    print("10. Exit")
+
+    while True:
+        choice = input("\nEnter choice (1-10): ")
+
+        if choice == '10':
+            print("Exiting the calculator.")
+            break
+
+        if choice in ['1', '2', '3', '4', '9']:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+
+            if choice == '1':
+                print(f"The result is: {add(num1, num2)}")
+            elif choice == '2':
+                print(f"The result is: {subtract(num1, num2)}")
+            elif choice == '3':
+                print(f"The result is: {multiply(num1, num2)}")
+            elif choice == '4':
+                print(f"The result is: {divide(num1, num2)}")
+            elif choice == '9':
+                print(f"The result is: {power(num1, num2)}")
+
+        elif choice == '5':
+            num = float(input("Enter number: "))
+            print(f"The result is: {sqrt(num)}")
+
+        elif choice == '6':
+            num = float(input("Enter number: "))
+            base = input("Enter base (default is 10): ")
+            if base:
+                base = float(base)
+                print(f"The result is: {logarithm(num, base)}")
+            else:
+                print(f"The result is: {logarithm(num)}")
+
+        elif choice == '7':
+            num = float(input("Enter number: "))
+            print(f"The result is: {natural_log(num)}")
+
+        elif choice == '8':
+            num = float(input("Enter number: "))
+            print(f"The result is: {exponential(num)}")
+
+        else:
+            print("Invalid input. Please select a valid option.")
+
+if __name__ == "__main__":
+    scientific_calculator()
